@@ -16,6 +16,12 @@ class ArticlesScreen extends StatefulWidget {
 
 class _ArticlesScreenState extends State<ArticlesScreen> {
   @override
+  void initState() {
+    super.initState();
+    Future.microtask(() => context.read<ArticleVM>().getArticles());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
