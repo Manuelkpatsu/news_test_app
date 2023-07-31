@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'screen/articles/articles_screen.dart';
+import 'services/article_service.dart';
+import 'view_models/article_vm.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,22 +21,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Flutter Demo Home Page'),
+      home: ChangeNotifierProvider(
+        create: (_) => ArticleVM(ArticleService()),
+        child: const ArticlesScreen(),
       ),
-      body: const Center(child: Text('You are welcome')),
     );
   }
 }
