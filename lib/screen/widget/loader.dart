@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Loader extends StatelessWidget {
-  const Loader({super.key});
+  final String keyValue;
+
+  const Loader({super.key, required this.keyValue});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
+    return Center(child: CircularProgressIndicator(key: Key(keyValue)));
   }
 }

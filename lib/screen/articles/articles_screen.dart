@@ -31,7 +31,7 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
       body: Consumer<ArticleVM>(
         builder: (context, notifier, child) {
           if (notifier.isLoading) {
-            return const Loader();
+            return const Loader(keyValue: 'progress-indicator');
           }
           return ListView.builder(
             itemCount: notifier.articles.length,
@@ -47,10 +47,10 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
                     ),
                   );
                 },
-                marginBottom: index == notifier.articles.length - 1 ? 0 : 5,
+                marginBottom: index == notifier.articles.length - 1 ? 0 : 10,
               );
             },
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
           );
         },
       ),

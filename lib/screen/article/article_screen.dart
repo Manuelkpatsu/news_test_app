@@ -11,17 +11,17 @@ class ArticleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context);
-
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: mq.padding.top, bottom: mq.padding.bottom, left: 8, right: 8),
-        child: Column(
-          children: [
-            TitleText(title: article.title),
-            const SizedBox(height: 8),
-            ContentText(content: article.content),
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            children: [
+              TitleText(title: article.title),
+              const SizedBox(height: 8),
+              ContentText(content: article.content),
+            ],
+          ),
         ),
       ),
     );
